@@ -6,6 +6,6 @@
         public string ResultMessage { get; set; }
         public string MoreDetails { get; set; }
         public object ValidatonDictionary { get; set; }
-        public Resultobject ResultObject { get; set; }
+        public User ResultObject { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace MawhibaSample
         {
             InitializeComponent();
             SideMenuList.ItemsSource = new[] {"Page One", "Page Two"};
-            Detail = new PageOne();
+            Detail = new ContactUsPage();
             //MainPageNavigationArea.PushAsync(new PageOne());
         }
 
@@ -24,8 +24,8 @@ namespace MawhibaSample
         {
             switch (e.ItemIndex)
             {
-                case 0: Detail=(new PageOne()); break;
-                case 1: Detail=(new PageTwo()); break;
+                case 0: Detail=(new ContactUsPage()); break;
+                case 1: Detail=(new ServicesListPage()); break;
 
                     //case 0: MainPageNavigationArea=new NavigationPage(new PageOne()); break;
                     //case 1: MainPageNavigationArea=new NavigationPage(new PageTwo()); break;

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MawhibaSample
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PageOne : ContentPage
+    public partial class ServicesListPage : ContentPage
     {
-        public PageOne()
+        public ServicesListPage()
         {
             InitializeComponent();
         }

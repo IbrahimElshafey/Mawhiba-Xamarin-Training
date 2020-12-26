@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
+    xmlns:common="clr-namespace:MawhibaSample.Common;assembly=MawhibaSample"
+    xmlns:localization="clr-namespace:MawhibaSample.Localization;assembly=MawhibaSample"
+    xmlns:mawhibaSample="clr-namespace:MawhibaSample;assembly=MawhibaSample" xmlns:viewmodels="clr-namespace:MawhibaSample.ViewModels"
+    x:Class="MawhibaSample.LoginPage"
+    NavigationPage.HasNavigationBar="False"
+    FlowDirection="{x:Static mawhibaSample:App.FlowDirection}"
+    >
+    <ContentPage.BindingContext>
+        <viewmodels:LoginVm/>
+    </ContentPage.BindingContext>
+    <StackLayout VerticalOptions="Center" Padding="20">
+        <Image
+            x:Name="LogoImage"
+            Margin="20"
+            WidthRequest="100"
+            HeightRequest="200"
+            Source="{xamlExtensions:ImageFromResources 'logo.png'}" />
+        <Entry
+            x:Name="UserNameEntry"
+            Style="{StaticResource EntryStyle}"
+            Text="{Binding UserName}"
+            Placeholder="{x:Static localization:TextResources.UserNamePlaceHolder}" />
+        <Entry
+            x:Name="PasswordNameEntry"
+            IsPassword="True"
+            Text="{Binding Password}"
+            Placeholder="{x:Static localization:TextResources.PasswordPlaceHolder}" />
+        <!--<Label 
+            x:Name="PasswordLabel"
+            Text="{Binding Source={x:Reference PasswordNameEntry},Path=Text}"/>-->
+        <Button
+            Command="{Binding LoginCommand}"
+            Text="{x:Static localization:TextResources.Login}" />
+
+        <Button
+            Command="{Binding ChangeLanguageCommand}"
+            Text="{x:Static localization:TextResources.ChangeLanguage}" />
+    </StackLayout>
+
+</ContentPage>

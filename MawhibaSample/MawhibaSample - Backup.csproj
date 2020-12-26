@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -15,10 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\image01-min.png">
-      <CustomToolNamespace>MawhibaSample</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="logo.png" />
+    <EmbeddedResource Include="Images\image01-min.png" />
+    <EmbeddedResource Include="Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,28 +28,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\TextResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TextResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Views\LoginPage.xaml.cs">
+    <Compile Update="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <EmbeddedResource Update="HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Localization\TextResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PageOne.xaml">
+    <EmbeddedResource Update="PageOne.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PageTwo.xaml">
+    <EmbeddedResource Update="PageTwo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

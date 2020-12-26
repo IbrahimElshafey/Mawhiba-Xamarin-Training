@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
+             x:Class="MawhibaSample.ContactUsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="1111111" TextColor="{xamlExtensions:RandomColor}"/>
+            <Label Text="222222" TextColor="{xamlExtensions:RandomColor}"/>
+            <Label Text="333333" TextColor="{xamlExtensions:RandomColor}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
