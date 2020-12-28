@@ -93,6 +93,34 @@
       <Project>{EB7E2F60-61EA-41D1-A94B-77601A63C5F9}</Project>
       <Name>MawhibaSample</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Samples\BindablePicker\BindablePicker.csproj">
+      <Project>{9241a544-44e6-4ee0-8a5a-7039d935d5ae}</Project>
+      <Name>BindablePicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\CheckBoxDemos\CheckBoxDemos.csproj">
+      <Project>{0328b0af-0cc5-4d11-9701-442a19c18ecb}</Project>
+      <Name>CheckBoxDemos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\DaysBetweenDates\DaysBetweenDates.csproj">
+      <Project>{da74cf3a-d015-48e4-bb22-fcd459ecf070}</Project>
+      <Name>DaysBetweenDates</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\PickerDemo\PickerDemo.csproj">
+      <Project>{8bb0898e-e371-4e44-a21a-baf003d8739d}</Project>
+      <Name>PickerDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\SetTimer\SetTimer.csproj">
+      <Project>{0eaac266-fbe8-4459-94ba-d4ab118af235}</Project>
+      <Name>SetTimer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\SwitchDemos\SwitchDemos.csproj">
+      <Project>{983386e2-7e27-4a6b-9747-e31b01002493}</Project>
+      <Name>SwitchDemos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\TextSample\TextSample.csproj">
+      <Project>{ef06c300-224b-4fb9-af09-6fb1d3b26a68}</Project>
+      <Name>TextSample</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
