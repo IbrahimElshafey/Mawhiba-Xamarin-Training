@@ -3,5 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
              x:Class="MawhibaSample.Views.ContactUsPage">
-    
+    <StackLayout Padding="20" Spacing="0">
+        <Label 
+            Style="{StaticResource EntryLabel}"
+            Text="حول الخدمة"/>
+        <Picker 
+            Margin="0,0,0,10"
+            Title="اختر الخدمة"/>
+
+        <Label
+            Style="{StaticResource EntryLabel}"
+            Text="الموضوع"/>
+        <StackLayout 
+            Margin="0,0,0,10"
+            Orientation="Horizontal">
+           <RadioButton GroupName="topic" Text="ملاحظة"/>
+            <RadioButton GroupName="topic" Text="اقتراح"/>
+            <RadioButton  GroupName="topic" Text="آخرى"/>
+        </StackLayout>
+
+        <Entry Placeholder="الإسم"/>
+        <Entry Placeholder="التخصص"/>
+        <Entry Placeholder="البلد"/>
+        <Entry Placeholder="المدينة"/>
+        <Entry Placeholder="الجهة"/>
+        <Entry 
+            Placeholder="هاتف رقم" 
+            Keyboard="Telephone"/>
+    </StackLayout>
 </ContentPage>

@@ -109,6 +109,10 @@
       <Project>{8bb0898e-e371-4e44-a21a-baf003d8739d}</Project>
       <Name>PickerDemo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Samples\RadioButtonDemos\RadioButtonDemos.csproj">
+      <Project>{29f55c38-01e3-412b-ab4b-6ecb9786f7dd}</Project>
+      <Name>RadioButtonDemos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Samples\SetTimer\SetTimer.csproj">
       <Project>{0eaac266-fbe8-4459-94ba-d4ab118af235}</Project>
       <Name>SetTimer</Name>

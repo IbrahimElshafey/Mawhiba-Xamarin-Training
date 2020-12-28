@@ -20,6 +20,8 @@
         <DatePicker x:Name="startDatePicker"
                     Format="D"
                     Margin="30, 0, 0, 30"
+                    MaximumDate="{x:Static x:DateTime.Today}"
+                    
                     DateSelected="OnDateSelected" />
 
         <Label Text="End Date:" />

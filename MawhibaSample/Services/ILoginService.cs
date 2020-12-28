@@ -9,6 +9,5 @@ namespace MawhibaSample.Services
     {
         [Get("/Login/Login")]
         Task<ApiResult> Login(string username, string password);
-
     }
 }

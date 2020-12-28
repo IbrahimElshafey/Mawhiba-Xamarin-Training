@@ -25,8 +25,10 @@ namespace MawhibaSample.Droid
             base.OnCreate(savedInstanceState);
 
             Platform.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.SetFlags("RadioButton_Experimental");
             Forms.Init(this, savedInstanceState);
-            var start = 7;
+            
+            var start = 0;
             switch (start)
             {
                 case 0:
@@ -52,6 +54,9 @@ namespace MawhibaSample.Droid
                     break;
                 case 7:
                     LoadApplication(new SetTimer.App());
+                    break;
+                case 8:
+                    LoadApplication(new RadioButtonDemos.App());
                     break;
             }
         }

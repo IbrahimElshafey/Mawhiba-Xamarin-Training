@@ -10,7 +10,8 @@
                HorizontalOptions="Center" />
 		<Picker x:Name="picker"
                 Title="Select a monkey"
-                TitleColor="Red">
+                TitleColor="Red"
+                TextColor="Blue">
 			<Picker.ItemsSource>
 				<x:Array Type="{x:Type x:String}">
 					<x:String>Baboon</x:String>
