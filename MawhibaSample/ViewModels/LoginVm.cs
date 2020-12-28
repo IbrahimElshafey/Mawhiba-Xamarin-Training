@@ -1,12 +1,15 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using FluentValidation;
 using FluentValidation.Results;
 using MawhibaSample.Annotations;
 using MawhibaSample.Common;
 using MawhibaSample.Services;
+using MawhibaSample.Views;
 using Refit;
 using Xamarin.Forms;
 
@@ -39,18 +42,13 @@ namespace MawhibaSample.ViewModels
             }
         }
 
-        public ICommand ChangeLanguageCommand => new Command(async () =>
+        public ICommand ChangeLanguageCommand => new Command(() =>
         {
-            var currentCulture = App.IsEnglish ?
-                new CultureInfo("ar") :
-                new CultureInfo("en");
-            CultureInfo.CurrentUICulture = currentCulture;
-            //TextResources.Culture = currentCulture;
-            App.IsEnglish = !App.IsEnglish;
-            App.Current.MainPage = new LoginPage();
+            AppSettings.IsEnglish = !AppSettings.IsEnglish;
+            Application.Current.MainPage = new LoginPage();
         });
 
-        public ICommand LoginCommand =>new Command(async() =>
+        public ICommand LoginCommand => new Command(async () =>
         {
             var validationResult = ValidateInputs();
             if (validationResult.IsValid)
@@ -61,19 +59,28 @@ namespace MawhibaSample.ViewModels
                 if (loginResult?.ResultCode == "RES01")
                 {
                     App.CurrentUser = loginResult.ResultObject;
-                    App.Current.MainPage = new HomePage();
+                    Application.Current.MainPage = new HomePage();
                 }
                 else
                 {
-                    App.Current.MainPage.DisplayAlert("Failed", loginResult?.ResultMessage ?? "Undefined Error", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Failed",
+                        loginResult?.ResultMessage ?? "Undefined Error", "OK");
                     //await DisplayAlert("Failed", loginResult?.ResultMessage ?? "Undefined Error", "OK");
                 }
             }
             else
             {
-                App.Current.MainPage.DisplayAlert("Failed", validationResult.GetErrors(), "OK");
+                await Application.Current.MainPage.DisplayAlert("Failed", validationResult.GetErrors(), "OK");
             }
         });
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private ValidationResult ValidateInputs()
         {
@@ -88,14 +95,6 @@ namespace MawhibaSample.ViewModels
                 .NotEmpty();
             var validationResult = validator.Validate((UserName, Password));
             return validationResult;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

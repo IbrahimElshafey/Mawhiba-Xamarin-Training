@@ -7,5 +7,11 @@
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Background" Value="LightGreen"/>
         </Style>
+        <Style x:Key="Header1" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="TextColor" Value="DarkSlateGray"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <x:String x:Key="StringInResources">Any Value</x:String>
     </Application.Resources>
 </Application>

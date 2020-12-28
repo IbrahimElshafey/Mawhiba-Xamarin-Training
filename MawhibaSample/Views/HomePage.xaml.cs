@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Transactions;
+using MawhibaSample.XamlExtensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MawhibaSample
+namespace MawhibaSample.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage
@@ -15,20 +11,16 @@ namespace MawhibaSample
         public HomePage()
         {
             InitializeComponent();
-            SideMenuList.ItemsSource = new[] {"Page One", "Page Two"};
-            Detail = new ContactUsPage();
-            //MainPageNavigationArea.PushAsync(new PageOne());
+            SideMenuList.ItemsSource = new[] {TranslateExtension.Translate("Services"), TranslateExtension.Translate("Contact Us") };
+            MainPageNavigationArea.PushAsync(new ServicesListPage());
         }
 
         private async void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)  
         {
             switch (e.ItemIndex)
             {
-                case 0: Detail=(new ContactUsPage()); break;
-                case 1: Detail=(new ServicesListPage()); break;
-
-                    //case 0: MainPageNavigationArea=new NavigationPage(new PageOne()); break;
-                    //case 1: MainPageNavigationArea=new NavigationPage(new PageTwo()); break;
+                case 0:await MainPageNavigationArea.PushAsync(new ServicesListPage()); break;
+                case 1:await MainPageNavigationArea.PushAsync(new ContactUsPage()); break;
             }
 
             this.IsPresented = false;

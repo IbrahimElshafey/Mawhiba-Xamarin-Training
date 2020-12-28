@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    x:Class="MawhibaSample.Views.ServicesListPage"
+    NavigationPage.HasNavigationBar="True"
+    Title="{xamlExtensions:Translate 'Services'}"
+    x:Name="ThisView"
+    BindingContext="{x:Reference ThisView}">
+    <StackLayout>
+        <!--<BoxView Background="black"></BoxView>-->
+        <ListView
+            x:Name="ServicesList"
+            RefreshAllowed="True"
+            RefreshCommand="{Binding OpenServicePageCommand}"
+            ItemsSource="{Binding Services}"
+            SeparatorVisibility="None"
+            HasUnevenRows="True"
+            SelectionMode="Single">
+            <ListView.Header>
+                <BoxView 
+                    HeightRequest="5"
+                    />
+            </ListView.Header>
+            <!--<ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Service One</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                    <x:String>Service Two</x:String>
+                </x:Array>
+            </ListView.ItemsSource>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<SwitchCell Text="{Binding .}" />-->
+                    <ViewCell>
+                        <!--<ViewCell.ContextActions>
+                            <MenuItem 
+                                      CommandParameter="{Binding .}"
+                                      Text="More" />
+                            <MenuItem 
+                                      CommandParameter="{Binding .}"
+                                      Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>-->
+                        <Frame 
+                            HasShadow="True" 
+                            Margin="10,5"
+                            CornerRadius="10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={x:Reference ThisView},Path=OpenServicePageCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Image 
+                                    HeightRequest="100"
+                                    Source="{xamlExtensions:ImageFromResources 'logo.png'}"/>
+                                <Label
+                                    FontFamily="Mono Droid"
+                                    Style="{StaticResource Header1}"
+                                    Text="{Binding Title}"/>
+                                <!--LineHeight="1.5"-->
+                                <Label 
+                                    TextColor="LightSlateGray"
+                                    FontSize="Body"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="2"
+                                    Text="{Binding Description}"/>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <BoxView 
+                    HeightRequest="5"
+                />
+            </ListView.Footer>
+        </ListView>
+    </StackLayout>
+</ContentPage>

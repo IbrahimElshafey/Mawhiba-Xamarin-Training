@@ -1,27 +1,33 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
+using System.Threading;
 using MawhibaSample.Common;
 using MawhibaSample.Services;
+using MawhibaSample.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MawhibaSample
 {
     public partial class App : Application
     {
-        public static NavigationPage MainNavigationPage { get; private set; }
-        public static User CurrentUser { get; set; }
-        public static bool IsEnglish { get; set; } = true;
-        public static FlowDirection FlowDirection => IsEnglish ? FlowDirection.LeftToRight : FlowDirection.RightToLeft;
-
         public App()
         {
             InitializeComponent();
             MainNavigationPage = new NavigationPage(new LoginPage());
-            MainPage = MainNavigationPage; 
+            MainPage = MainNavigationPage;
         }
 
-       
+        public static NavigationPage MainNavigationPage { get; private set; }
+        public static User CurrentUser { get; set; }
+
+        public static void ChangeLanguage()
+        {
+            //var currentCulture = AppSettings.IsEnglish ? new CultureInfo("ar") : new CultureInfo("en");
+            //Thread.CurrentThread.CurrentUICulture = currentCulture;
+            //CultureInfo.CurrentUICulture = currentCulture;
+            //TextResources.Culture = currentCulture;
+            AppSettings.IsEnglish = !AppSettings.IsEnglish;
+        }
+
 
         protected override void OnStart()
         {

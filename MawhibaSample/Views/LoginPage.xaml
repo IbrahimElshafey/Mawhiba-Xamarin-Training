@@ -3,16 +3,16 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
     xmlns:common="clr-namespace:MawhibaSample.Common;assembly=MawhibaSample"
     xmlns:localization="clr-namespace:MawhibaSample.Localization;assembly=MawhibaSample"
-    xmlns:mawhibaSample="clr-namespace:MawhibaSample;assembly=MawhibaSample" xmlns:viewmodels="clr-namespace:MawhibaSample.ViewModels"
-    x:Class="MawhibaSample.LoginPage"
+    xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
+    xmlns:viewModels="clr-namespace:MawhibaSample.ViewModels;assembly=MawhibaSample"
+    x:Class="MawhibaSample.Views.LoginPage"
     NavigationPage.HasNavigationBar="False"
-    FlowDirection="{x:Static mawhibaSample:App.FlowDirection}"
+    FlowDirection="{x:Static common:AppSettings.FlowDirection}"
     >
     <ContentPage.BindingContext>
-        <viewmodels:LoginVm/>
+        <viewModels:LoginVm/>
     </ContentPage.BindingContext>
     <StackLayout VerticalOptions="Center" Padding="20">
         <Image
@@ -25,22 +25,22 @@
             x:Name="UserNameEntry"
             Style="{StaticResource EntryStyle}"
             Text="{Binding UserName}"
-            Placeholder="{x:Static localization:TextResources.UserNamePlaceHolder}" />
+            Placeholder="{xamlExtensions:Translate 'User Name'}" />
         <Entry
             x:Name="PasswordNameEntry"
             IsPassword="True"
             Text="{Binding Password}"
-            Placeholder="{x:Static localization:TextResources.PasswordPlaceHolder}" />
+            Placeholder="{xamlExtensions:Translate 'Password'}" />
         <!--<Label 
             x:Name="PasswordLabel"
             Text="{Binding Source={x:Reference PasswordNameEntry},Path=Text}"/>-->
         <Button
             Command="{Binding LoginCommand}"
-            Text="{x:Static localization:TextResources.Login}" />
+            Text="{xamlExtensions:Translate 'Login'}" />
 
         <Button
             Command="{Binding ChangeLanguageCommand}"
-            Text="{x:Static localization:TextResources.ChangeLanguage}" />
+            Text="{xamlExtensions:Translate 'Change Language'}" />
     </StackLayout>
 
 </ContentPage>

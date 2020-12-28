@@ -2,13 +2,13 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mawhibaSample="clr-namespace:MawhibaSample;assembly=MawhibaSample"
-             x:Class="MawhibaSample.HomePage"
+             x:Class="MawhibaSample.Views.HomePage"
              Title="Home Page"
              NavigationPage.HasNavigationBar="False">
     <MasterDetailPage.Detail>
-        <!--<NavigationPage x:Name="MainPageNavigationArea">
+        <NavigationPage x:Name="MainPageNavigationArea">
            
-        </NavigationPage>-->
+        </NavigationPage>
     </MasterDetailPage.Detail>
     <MasterDetailPage.Master>
         <ContentPage Title="hjghuj">

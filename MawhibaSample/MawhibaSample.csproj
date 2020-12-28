@@ -12,12 +12,14 @@
 
   <ItemGroup>
     <None Remove="Images\image01-min.png" />
+    <None Remove="Localization\Localization.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\image01-min.png">
       <CustomToolNamespace>MawhibaSample</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Localization.json" />
     <EmbeddedResource Include="logo.png" />
   </ItemGroup>
 
@@ -38,21 +40,32 @@
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ContactUsPage.xaml.cs">
+      <DependentUpon>ContactUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ServicesListPage.xaml.cs">
+      <DependentUpon>ServicesListPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Localization\TextResources.resx">
+      <Generator>InternalResXFileCodeGeneratorEx</Generator>
+      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Localization\TextResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PageOne.xaml">
+    <EmbeddedResource Update="Views\ContactUsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PageTwo.xaml">
+    <EmbeddedResource Update="Views\ServicesListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+<Target Name="_ResolveSatellitePaths" DependsOnTargets="_ResolveAssemblies">
+    <ResolveAssemblyReference AllowedAssemblyExtensions="$(AllowedReferenceAssemblyFileExtensions)" AssemblyFiles="@(ResolvedUserAssemblies)" AutoUnify="$(AutoUnifyAssemblyReferences)" FindDependencies="True" FindRelatedFiles="False" FindSatellites="True" SearchPaths="$(AssemblySearchPaths)" TargetFrameworkMoniker="$(TargetFrameworkMoniker)" TargetFrameworkMonikerDisplayName="$(TargetFrameworkMonikerDisplayName)" TargetFrameworkDirectories="$(TargetFrameworkDirectory)">
+      <Output TaskParameter="SatelliteFiles" ItemName="_AndroidResolvedSatellitePaths" />
+    </ResolveAssemblyReference>
+  </Target>
 </Project>
