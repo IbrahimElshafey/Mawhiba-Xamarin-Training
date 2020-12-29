@@ -1,12 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
-             x:Class="MawhibaSample.Views.ContactUsPage">
-    <StackLayout Padding="20" Spacing="0">
-        <Label 
-            Style="{StaticResource EntryLabel}"
-            Text="حول الخدمة"/>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xamlExtensions="clr-namespace:MawhibaSample.XamlExtensions;assembly=MawhibaSample"
+    xmlns:userControls="clr-namespace:MawhibaSample.UserControls;assembly=MawhibaSample"
+    x:Class="MawhibaSample.Views.ContactUsPage"
+    x:Name="ThisView"
+    BindingContext="{x:Reference ThisView}"
+    FlowDirection="RightToLeft"
+    Title="Contact Us">
+    <StackLayout  Padding="20" Spacing="0">
+        <Label
+            HorizontalTextAlignment="Start"
+            Style="{StaticResource EntryLabel}">
+            
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text=" " FontFamily="FAS"/>
+                    <Span Text="Anroikml,"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        
         <Picker 
             Margin="0,0,0,10"
             Title="اختر الخدمة"/>
@@ -17,11 +33,29 @@
         <StackLayout 
             Margin="0,0,0,10"
             Orientation="Horizontal">
-           <RadioButton GroupName="topic" Text="ملاحظة"/>
-            <RadioButton GroupName="topic" Text="اقتراح"/>
-            <RadioButton  GroupName="topic" Text="آخرى"/>
+            <StackLayout.Children>
+              <RadioButton GroupName="topic" Text="ملاحظة"/>
+              <RadioButton GroupName="topic" Text="اقتراح"/>
+              <RadioButton GroupName="topic" Text="آخرى"/>
+            </StackLayout.Children>
         </StackLayout>
+        <!--<userControls:RadioEntry
+            PropertyToDisplayName="Name"
+            GroupName="topic1"
+            ItemsSource="{Binding RadioItems}"
+            SelectedItem="{Binding SelectedRadio}"/>-->
 
+        <userControls:RadioButtonGroup
+            PropertyToDisplayName="Key"
+            GroupName="topic1"
+            ItemsSource="{Binding RadioItems}"
+            SelectedItem="{Binding SelectedRadio}"/>
+
+        <userControls:CustomRadioButton
+            IsChecked="True"
+            Value="Any Value"
+            CheckedCommand="{Binding CheckCommand}"
+            />
         <Entry Placeholder="الإسم"/>
         <Entry Placeholder="التخصص"/>
         <Entry Placeholder="البلد"/>
@@ -30,5 +64,6 @@
         <Entry 
             Placeholder="هاتف رقم" 
             Keyboard="Telephone"/>
+        <Editor HeightRequest="200"/>
     </StackLayout>
 </ContentPage>

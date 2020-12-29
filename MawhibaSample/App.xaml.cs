@@ -5,6 +5,10 @@ using MawhibaSample.Services;
 using MawhibaSample.Views;
 using Xamarin.Forms;
 
+[assembly: ExportFont("Brands-Regular-400.otf", Alias = "FAR")]
+[assembly: ExportFont("Free-Solid-900.otf", Alias = "FAS")]
+[assembly: ExportFont("Tajawal-Regular.ttf", Alias = "TR")]
+[assembly: ExportFont("Tajawal-Bold.ttf", Alias = "TB")]
 namespace MawhibaSample
 {
     public partial class App : Application
@@ -12,6 +16,8 @@ namespace MawhibaSample
         public App()
         {
             InitializeComponent();
+           
+            //MainNavigationPage = new NavigationPage(new LoginPage());
             MainNavigationPage = new NavigationPage(new LoginPage());
             MainPage = MainNavigationPage;
         }

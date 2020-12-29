@@ -11,11 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Brands-Regular-400.otf" />
+    <None Remove="Fonts\Free-Solid-900.otf" />
+    <None Remove="Fonts\Tajawal-Bold.ttf" />
+    <None Remove="Fonts\Tajawal-Regular.ttf" />
     <None Remove="Images\image01-min.png" />
     <None Remove="Localization\Localization.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Fonts\Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Fonts\Free-Solid-900.otf" />
+    <EmbeddedResource Include="Fonts\Tajawal-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Tajawal-Regular.ttf" />
     <EmbeddedResource Include="Images\image01-min.png">
       <CustomToolNamespace>MawhibaSample</CustomToolNamespace>
     </EmbeddedResource>
@@ -37,6 +45,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>TextResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControls\RadioEntry1.xaml.cs">
+      <DependentUpon>RadioEntry1.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -53,6 +64,12 @@
       <Generator>InternalResXFileCodeGeneratorEx</Generator>
       <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="UserControls\RadioButtonGroup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserControls\RadioEntry1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -62,6 +79,12 @@
     <EmbeddedResource Update="Views\ServicesListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="UserControls\RadioButtonGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 <Target Name="_ResolveSatellitePaths" DependsOnTargets="_ResolveAssemblies">
     <ResolveAssemblyReference AllowedAssemblyExtensions="$(AllowedReferenceAssemblyFileExtensions)" AssemblyFiles="@(ResolvedUserAssemblies)" AutoUnify="$(AutoUnifyAssemblyReferences)" FindDependencies="True" FindRelatedFiles="False" FindSatellites="True" SearchPaths="$(AssemblySearchPaths)" TargetFrameworkMoniker="$(TargetFrameworkMoniker)" TargetFrameworkMonikerDisplayName="$(TargetFrameworkMonikerDisplayName)" TargetFrameworkDirectories="$(TargetFrameworkDirectory)">

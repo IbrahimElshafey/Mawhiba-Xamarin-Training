@@ -13,7 +13,16 @@
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
         <x:String x:Key="StringInResources">Any Value</x:String>
-        <Style x:Key="EntryLabel" TargetType="Label">
+        <Style  TargetType="Picker">
+            <Setter Property="FontFamily" Value="TR"/>
+        </Style>
+        <Style  TargetType="Entry">
+            <Setter Property="FontFamily" Value="TR"/>
+        </Style>
+        <Style  TargetType="Label">
+            <Setter Property="FontFamily" Value="TR"/>
+        </Style>
+        <Style x:Key="EntryLabel" TargetType="Label" >
             <Setter Property="FontSize" Value="10"/>
             <Setter Property="TextColor" Value="BlueViolet"/>
             <Setter Property="FontAttributes" Value="Bold"/>

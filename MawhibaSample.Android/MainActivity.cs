@@ -28,6 +28,7 @@ namespace MawhibaSample.Droid
             Xamarin.Forms.Forms.SetFlags("RadioButton_Experimental");
             Forms.Init(this, savedInstanceState);
             
+            //change start to crosponding value to start a sample in below switch
             var start = 0;
             switch (start)
             {
