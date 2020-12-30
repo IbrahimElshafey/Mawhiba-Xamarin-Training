@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="Fonts\Brands-Regular-400.otf" />
+    <None Remove="Fonts\Free-Regular-400.otf" />
     <None Remove="Fonts\Free-Solid-900.otf" />
     <None Remove="Fonts\Tajawal-Bold.ttf" />
     <None Remove="Fonts\Tajawal-Regular.ttf" />
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Fonts\Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Fonts\Free-Regular-400.otf" />
     <EmbeddedResource Include="Fonts\Free-Solid-900.otf" />
     <EmbeddedResource Include="Fonts\Tajawal-Bold.ttf" />
     <EmbeddedResource Include="Fonts\Tajawal-Regular.ttf" />

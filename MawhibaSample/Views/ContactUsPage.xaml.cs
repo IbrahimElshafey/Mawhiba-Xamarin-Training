@@ -11,13 +11,15 @@ namespace MawhibaSample.Views
         public ContactUsPage()
         {
             InitializeComponent();
+            ServicePicker.FontFamily = "FAR";
         }
 
-        public List<KeyValuePair<string,int>> RadioItems => new List<KeyValuePair<string, int>>
+        public List<KeyValuePair<string,int>> TopicsList => new List<KeyValuePair<string, int>>
         {
-           new KeyValuePair<string, int>("Item 1",1),
-           new KeyValuePair<string, int>("Item 2",2),
-           new KeyValuePair<string, int>("Item 3",3),
+           new KeyValuePair<string, int>("إستفسار",2),
+           new KeyValuePair<string, int>("ملاحظة",5),
+           new KeyValuePair<string, int>("إقتراح",3),
+           new KeyValuePair<string, int>("آخرى",3),
         };
         private KeyValuePair<string, int> _selectedRadio;
         public KeyValuePair<string,int> SelectedRadio

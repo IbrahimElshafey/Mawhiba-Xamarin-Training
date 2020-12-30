@@ -8,6 +8,6 @@ namespace MawhibaSample.Services
     public interface ILoginService
     {
         [Get("/Login/Login")]
-        Task<ApiResult> Login(string username, string password);
+        Task<ApiResult<User>> Login(string username, string password);
     }
 }

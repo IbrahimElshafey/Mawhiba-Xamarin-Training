@@ -22,45 +22,50 @@ namespace MawhibaSample.UserControls
         }
 
         public string PropertyToDisplayName { get; set; }
-        public string GroupName { get; set; }
 
 
         #region ItemsSource
 
-        public IEnumerable ItemsSource
+        public IList ItemsSource
         {
-            get => (IEnumerable) GetValue(ItemsSourceProperty);
+            get => (IList) GetValue(ItemsSourceProperty);
             set => SetValue(ItemsSourceProperty, value);
         }
 
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty.Create(
                 nameof(ItemsSource),
-                typeof(IEnumerable),
+                typeof(IList),
                 typeof(RadioButtonGroup),
-                default(IEnumerable),
+                default(IList),
                 BindingMode.TwoWay,
                 propertyChanged: OnItemsSourceChanged);
 
         static void OnItemsSourceChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            (bindable as RadioButtonGroup)?.ItemsSourceChanged((IEnumerable) oldValue, (IEnumerable) newValue);
+            (bindable as RadioButtonGroup)?.ItemsSourceChanged((IList) oldValue, (IList) newValue);
         }
 
-        private void ItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
+        
+        private void ItemsSourceChanged(IList oldValue, IList newValue)
         {
             Children.Clear();
             foreach (var item in newValue)
             {
-                var radioButton = new RadioButton
+                var radioButton = new CustomRadioButton()
                 {
-                    GroupName = GroupName,
                     BindingContext = item,
                 };
-                radioButton.SetBinding(Button.TextProperty,PropertyToDisplayName);
-                radioButton.CheckedChanged += (sender, args) =>
+                radioButton.SetBinding(CustomRadioButton.ValueProperty, PropertyToDisplayName);
+                radioButton.Changed += (sender, args) =>
                 {
-                    SelectedItem = (sender as RadioButton)?.BindingContext;
+                    var oldIndex = ItemsSource.IndexOf(SelectedItem);
+                    if(oldIndex!=-1)
+                    {
+                        var oldSelectedRadioButton = Children[oldIndex] as CustomRadioButton;
+                        oldSelectedRadioButton.IsChecked = !oldSelectedRadioButton.IsChecked;
+                    }
+                    SelectedItem = (sender as CustomRadioButton)?.BindingContext;
                 };
                 Children.Add(radioButton);
             }

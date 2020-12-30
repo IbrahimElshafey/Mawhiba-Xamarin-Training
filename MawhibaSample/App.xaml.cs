@@ -5,7 +5,7 @@ using MawhibaSample.Services;
 using MawhibaSample.Views;
 using Xamarin.Forms;
 
-[assembly: ExportFont("Brands-Regular-400.otf", Alias = "FAR")]
+[assembly: ExportFont("Free-Regular-400.otf", Alias = "FAR")]//font is invalid 
 [assembly: ExportFont("Free-Solid-900.otf", Alias = "FAS")]
 [assembly: ExportFont("Tajawal-Regular.ttf", Alias = "TR")]
 [assembly: ExportFont("Tajawal-Bold.ttf", Alias = "TB")]
@@ -18,7 +18,7 @@ namespace MawhibaSample
             InitializeComponent();
            
             //MainNavigationPage = new NavigationPage(new LoginPage());
-            MainNavigationPage = new NavigationPage(new LoginPage());
+            MainNavigationPage = new NavigationPage(new ContactUsPage());
             MainPage = MainNavigationPage;
         }
 

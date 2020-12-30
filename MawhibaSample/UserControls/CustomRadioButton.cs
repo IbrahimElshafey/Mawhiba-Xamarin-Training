@@ -10,6 +10,7 @@ namespace MawhibaSample.UserControls
 
         public CustomRadioButton()
         {
+            FontFamily = "FAR";
             _tapGestureRecognizer = new TapGestureRecognizer
             {
                 Command = new Command(ItemClicked)
@@ -18,8 +19,8 @@ namespace MawhibaSample.UserControls
            
         }
 
-        public string CheckedCharacter { get; set; } = " ";
-        public string UnCheckedCharacter { get; set; } = " ";
+        public string CheckedCharacter { get; set; } = "\uf192 ";
+        public string UnCheckedCharacter { get; set; } = "\uf111 ";
 
         public event EventHandler<bool> Changed;
 
@@ -30,9 +31,9 @@ namespace MawhibaSample.UserControls
 
         private async void ItemClicked()
         {
-            await this.ScaleTo(1.1);
+            await this.ScaleTo(1.05,150);
             IsChecked = !IsChecked;
-            await this.ScaleTo(1);
+            await this.ScaleTo(1,150);
             CheckedCommand?.Execute(null);
             OnChanged(IsChecked);
         }
@@ -62,7 +63,8 @@ namespace MawhibaSample.UserControls
 
         private void ValueChanged(string oldValue, string newValue)
         {
-            ReDraw();
+            if (oldValue != newValue)
+                ReDraw();
         }
 
         #endregion
@@ -81,18 +83,18 @@ namespace MawhibaSample.UserControls
                 typeof(ICommand),
                 typeof(CustomRadioButton),
                 default(ICommand),
-                BindingMode.TwoWay,
-                propertyChanged: OnCheckedCommandChanged);
+                BindingMode.TwoWay);
+                //propertyChanged: OnCheckedCommandChanged);
 
-        private static void OnCheckedCommandChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            (bindable as CustomRadioButton)?.CheckedCommandChanged((ICommand) oldValue, (ICommand) newValue);
-        }
+        //private static void OnCheckedCommandChanged(BindableObject bindable, object oldValue, object newValue)
+        //{
+        //    (bindable as CustomRadioButton)?.CheckedCommandChanged((ICommand) oldValue, (ICommand) newValue);
+        //}
 
-        private void CheckedCommandChanged(ICommand oldValue, ICommand newValue)
-        {
-            _tapGestureRecognizer.Command = newValue;
-        }
+        //private void CheckedCommandChanged(ICommand oldValue, ICommand newValue)
+        //{
+        //    _tapGestureRecognizer.Command = newValue;
+        //}
 
         #endregion
 
@@ -120,7 +122,8 @@ namespace MawhibaSample.UserControls
 
         private void IsCheckedChanged(bool oldValue, bool newValue)
         {
-            ReDraw();
+            if(oldValue!=newValue)
+                ReDraw();
         }
 
         #endregion
@@ -130,7 +133,7 @@ namespace MawhibaSample.UserControls
             var checkIconSpan = new Span
             {
                 Text = IsChecked ? CheckedCharacter : UnCheckedCharacter,
-                FontFamily = "FAR"
+                FontFamily = "FAR",
             };
             var textSpan = new Span
             {
