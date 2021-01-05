@@ -1,7 +1,9 @@
 ﻿using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 using MawhibaSample.Common;
 using MawhibaSample.Services;
+using MawhibaSample.ViewModels;
 using MawhibaSample.Views;
 using Xamarin.Forms;
 
@@ -16,9 +18,29 @@ namespace MawhibaSample
         public App()
         {
             InitializeComponent();
-           
-            //MainNavigationPage = new NavigationPage(new LoginPage());
-            MainNavigationPage = new NavigationPage(new ContactUsPage());
+
+            //SetStartUpPage();
+            MainNavigationPage = new NavigationPage(new LoginPage());
+            //MainNavigationPage = new NavigationPage(new ContactUsPage());
+            //MainNavigationPage = new NavigationPage(new TestPage());
+            MainPage = MainNavigationPage;
+        }
+
+        private async Task SetStartUpPage()
+        {
+            var userName = await AppSettings.GetUserName();
+            var loginPage = new LoginPage();
+            var isUserExist = !string.IsNullOrWhiteSpace(userName);
+            if (isUserExist)
+            {
+                if (loginPage.BindingContext is LoginVm loginVm)
+                {
+                    loginVm.UserName = userName;
+                    loginVm.Password = await AppSettings.GetPassword();
+                    loginVm.LoginCommand.Execute(null);
+                }
+            }
+            MainNavigationPage = new NavigationPage(loginPage);
             MainPage = MainNavigationPage;
         }
 

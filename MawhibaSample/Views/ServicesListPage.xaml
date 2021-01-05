@@ -62,18 +62,18 @@
                             <StackLayout>
                                 <Image 
                                     HeightRequest="100"
-                                    Source="{xamlExtensions:ImageFromResources 'logo.png'}"/>
+                                    Source="{Binding ImageUrl}"/>
                                 <Label
                                     FontFamily="Mono Droid"
                                     Style="{StaticResource Header1}"
-                                    Text="{Binding Title}"/>
+                                    Text="{Binding ServiceName}"/>
                                 <!--LineHeight="1.5"-->
                                 <Label 
                                     TextColor="LightSlateGray"
                                     FontSize="Body"
                                     LineBreakMode="TailTruncation"
                                     MaxLines="2"
-                                    Text="{Binding Description}"/>
+                                    Text="{Binding ServiceDescription}"/>
                             </StackLayout>
                         </Frame>
                     </ViewCell>

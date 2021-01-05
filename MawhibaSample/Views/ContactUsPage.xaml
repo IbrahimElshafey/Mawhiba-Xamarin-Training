@@ -17,7 +17,11 @@
             <Picker
                 x:Name="ServicePicker"
                 Margin="0,0,0,10"
-                Title="اختر الخدمة" />
+                Title="اختر الخدمة" >
+                <!--<Picker.Effects>
+                    <BorderEffect/>
+                </Picker.Effects>-->
+            </Picker>
 
             <Label
                 Style="{StaticResource EntryLabel}"

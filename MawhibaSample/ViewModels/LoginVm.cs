@@ -17,6 +17,14 @@ namespace MawhibaSample.ViewModels
 {
     public class LoginVm : INotifyPropertyChanged
     {
+        public LoginVm()
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(5000);
+                ImageLogo = "logo.png";
+            });
+        }
         private string _password;
         private string _userName;
 
@@ -54,11 +62,13 @@ namespace MawhibaSample.ViewModels
             if (validationResult.IsValid)
             {
                 //await App.MainNavigationPage.PushAsync(new HomePage());
-                var loginClient = RestService.For<ILoginService>($"{AppConstants.BaseUrl}/UserProfile/api");
+                var loginClient = RestService.For<ILoginService>(AppConstants.BaseUrl);
                 var loginResult = await loginClient.Login(UserName, Password);
                 if (loginResult?.ResultCode == "RES01")
                 {
                     App.CurrentUser = loginResult.ResultObject;
+                    await AppSettings.SetUserName(UserName);
+                    await AppSettings.SetPassword(Password);
                     Application.Current.MainPage = new HomePage();
                 }
                 else
@@ -73,6 +83,19 @@ namespace MawhibaSample.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Failed", validationResult.GetErrors(), "OK");
             }
         });
+
+       
+        private string _imageLogo;
+        public string ImageLogo
+        {
+            get => _imageLogo;
+            set
+            {
+                if (value == _imageLogo) return;
+                _imageLogo = value;
+                OnPropertyChanged();
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

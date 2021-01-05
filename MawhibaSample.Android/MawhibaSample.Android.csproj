@@ -33,7 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidUseAapt2>false</AndroidUseAapt2>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BorderLessEntryRendrer.cs" />
+    <Compile Include="LabelShadowEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -87,11 +89,14 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MawhibaSample\MawhibaSample.csproj">
       <Project>{EB7E2F60-61EA-41D1-A94B-77601A63C5F9}</Project>
       <Name>MawhibaSample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\AttachedNumericValidationBehavior\AttachedNumericValidationBehavior.csproj">
+      <Project>{7b722090-106d-42ae-9e1a-dcc046ee2890}</Project>
+      <Name>AttachedNumericValidationBehavior</Name>
     </ProjectReference>
     <ProjectReference Include="..\Samples\BindablePicker\BindablePicker.csproj">
       <Project>{9241a544-44e6-4ee0-8a5a-7039d935d5ae}</Project>
@@ -105,6 +110,18 @@
       <Project>{da74cf3a-d015-48e4-bb22-fcd459ecf070}</Project>
       <Name>DaysBetweenDates</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Samples\EffectsDemo\EffectsDemo.csproj">
+      <Project>{6b022c40-120e-4f4d-ac53-f6bed91674c0}</Project>
+      <Name>EffectsDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\EventToCommandBehavior\EventToCommandBehavior.csproj">
+      <Project>{4d410609-f744-46ab-98d6-d8c28bf432cf}</Project>
+      <Name>EventToCommandBehavior</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\LocalDatabaseTutorial\LocalDatabaseTutorial.csproj">
+      <Project>{66322ad0-8450-4303-a1b2-1d481d1f4e42}</Project>
+      <Name>LocalDatabaseTutorial</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Samples\PickerDemo\PickerDemo.csproj">
       <Project>{8bb0898e-e371-4e44-a21a-baf003d8739d}</Project>
       <Name>PickerDemo</Name>
@@ -112,6 +129,10 @@
     <ProjectReference Include="..\Samples\RadioButtonDemos\RadioButtonDemos.csproj">
       <Project>{29f55c38-01e3-412b-ab4b-6ecb9786f7dd}</Project>
       <Name>RadioButtonDemos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\RoundEffectDemo\RoundEffectDemo.csproj">
+      <Project>{4a4d8bb4-6adf-4cf7-9246-576d937e918a}</Project>
+      <Name>RoundEffectDemo</Name>
     </ProjectReference>
     <ProjectReference Include="..\Samples\SetTimer\SetTimer.csproj">
       <Project>{0eaac266-fbe8-4459-94ba-d4ab118af235}</Project>
@@ -128,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\EntryBoder.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\image1.JFIF" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

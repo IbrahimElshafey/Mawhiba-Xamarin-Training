@@ -29,35 +29,50 @@ namespace MawhibaSample.Droid
             Forms.Init(this, savedInstanceState);
             
             //change start to crosponding value to start a sample in below switch
-            var start = 0;
+            var start = "OurSample";
             switch (start)
             {
-                case 0:
+                case "OurSample":
                     LoadApplication(new App());
                     break;
-                case 1:
+                case "Entry_Editor_Label":
                     LoadApplication(new TextSample.App());
                     break;
-                case 2:
+                case "Picker_1":
                     LoadApplication(new PickerDemo.App());
                     break;
-                case 3:
+                case "Picker_2":
                     LoadApplication(new BindablePicker.App());
                     break;
-                case 4:
+                case "CheckBox":
                     LoadApplication(new CheckBoxDemos.App());
                     break;
-                case 5:
+                case "DatePicker":
                     LoadApplication(new DaysBetweenDates.App());
                     break;
-                case 6:
+                case "Switch":
                     LoadApplication(new SwitchDemos.App());
                     break;
-                case 7:
+                case "TimePicker":
                     LoadApplication(new SetTimer.App());
                     break;
-                case 8:
+                case "RadioButtons":
                     LoadApplication(new RadioButtonDemos.App());
+                    break;
+                case "Effects":
+                    LoadApplication(new RoundEffectDemo.App());
+                    break;
+                case "EffectParameters":
+                    LoadApplication(new EffectsDemo.App());
+                    break;
+                case "EventToCommandBehavior":
+                    LoadApplication(new EventToCommandBehavior.App());
+                    break;
+                case "AttachedBehavior":
+                    LoadApplication(new AttachedNumericValidationBehavior.App());
+                    break;
+                case "LocalDatabaseTutorial":
+                    LoadApplication(new LocalDatabaseTutorial.App());
                     break;
             }
         }

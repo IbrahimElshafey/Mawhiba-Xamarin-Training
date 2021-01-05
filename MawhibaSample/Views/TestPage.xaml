@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:MawhibaSample.ViewModels;assembly=MawhibaSample"
+    x:Class="MawhibaSample.Views.TestPage"
+    Title="Test"
+    x:Name="ThisView">
+    <ContentPage.BindingContext>
+        <viewModels:TestVm />
+    </ContentPage.BindingContext>
+    <StackLayout
+        VerticalOptions="FillAndExpand">
+        <Picker
+            x:Name="CountryPicker"
+            Title="Country"
+            ItemsSource="{Binding Countries}"
+            SelectedItem="{Binding Country}"/>
+        <Picker
+            x:Name="CityPicker"
+            Title="City"
+            ItemsSource="{Binding Cities}"
+            SelectedItem="{Binding City}"/>
+        <!--<Button
+            Text="Play Animation"
+            Clicked="PlayAnimantion_Clicked" />
+        <BoxView
+            x:Name="Box"
+            Background="red"
+            WidthRequest="200"
+            HeightRequest="200"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+        <BoxView Background="green"/>-->
+    </StackLayout>
+</ContentPage>
