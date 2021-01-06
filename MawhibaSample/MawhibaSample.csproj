@@ -11,26 +11,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\Brands-Regular-400.otf" />
-    <None Remove="Fonts\Free-Regular-400.otf" />
-    <None Remove="Fonts\Free-Solid-900.otf" />
-    <None Remove="Fonts\Tajawal-Bold.ttf" />
-    <None Remove="Fonts\Tajawal-Regular.ttf" />
-    <None Remove="Images\image01-min.png" />
-    <None Remove="Localization\Localization.json" />
+    <None Remove="Assets\Fonts\Brands-Regular-400.otf" />
+    <None Remove="Assets\Fonts\Free-Regular-400.otf" />
+    <None Remove="Assets\Fonts\Free-Solid-900.otf" />
+    <None Remove="Assets\Fonts\Tajawal-Bold.ttf" />
+    <None Remove="Assets\Fonts\Tajawal-Regular.ttf" />
+    <None Remove="Assets\Images\image01-min.png" />
+    <None Remove="Assets\Localization\Localization.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Fonts\Brands-Regular-400.otf" />
-    <EmbeddedResource Include="Fonts\Free-Regular-400.otf" />
-    <EmbeddedResource Include="Fonts\Free-Solid-900.otf" />
-    <EmbeddedResource Include="Fonts\Tajawal-Bold.ttf" />
-    <EmbeddedResource Include="Fonts\Tajawal-Regular.ttf" />
-    <EmbeddedResource Include="Images\image01-min.png">
+    <EmbeddedResource Include="Assets\Fonts\Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Assets\Fonts\Free-Regular-400.otf" />
+    <EmbeddedResource Include="Assets\Fonts\Free-Solid-900.otf" />
+    <EmbeddedResource Include="Assets\Fonts\Tajawal-Bold.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Tajawal-Regular.ttf" />
+    <EmbeddedResource Include="Assets\Images\image01-min.png">
       <CustomToolNamespace>MawhibaSample</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localization\Localization.json" />
-    <EmbeddedResource Include="logo.png" />
+    <EmbeddedResource Include="Assets\Localization\Localization.json" />
+    <EmbeddedResource Include="Assets\Images\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,11 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\TextResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TextResources.resx</DependentUpon>
-    </Compile>
     <Compile Update="UserControls\RadioEntry1.xaml.cs">
       <DependentUpon>RadioEntry1.xaml</DependentUpon>
     </Compile>
@@ -62,10 +57,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Localization\TextResources.resx">
-      <Generator>InternalResXFileCodeGeneratorEx</Generator>
-      <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Update="UserControls\RadioButtonGroup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

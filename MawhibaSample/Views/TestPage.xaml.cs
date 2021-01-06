@@ -17,7 +17,7 @@ namespace MawhibaSample.Views
         public TestPage()
         {
             InitializeComponent();
-            
+            var x= Grid.GetRow(Label1);
         }
 
         

@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:MawhibaSample.Converters;assembly=MawhibaSample"
              x:Class="MawhibaSample.App">
     <Application.Resources>
+        <converters:NullImageConverter x:Key="NullImageConverter"/>
         <Style x:Key="EntryStyle" TargetType="Entry">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Background" Value="LightGreen"/>

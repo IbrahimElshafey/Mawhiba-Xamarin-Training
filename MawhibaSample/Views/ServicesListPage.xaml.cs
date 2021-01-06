@@ -71,7 +71,8 @@ namespace MawhibaSample.Views
         //}
         public ICommand OpenServicePageCommand => new Command<ServiceItem>(async service =>
         {
-            await Launcher.OpenAsync(service.ServiceHomeImageUrl);
+            if (service.ServiceHomeImageUrl != null)
+                await Launcher.OpenAsync(service.ServiceHomeImageUrl);
         });
 
         public List<ServiceItem> Services

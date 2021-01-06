@@ -40,7 +40,7 @@ namespace MawhibaSample.XamlExtensions
         public static Dictionary<string, string> GetLocalizationDictionary()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var stream = assembly.GetManifestResourceStream($"MawhibaSample.Localization.Localization.json");
+            var stream = assembly.GetManifestResourceStream($"MawhibaSample.Assets.Localization.Localization.json");
             var dic = new Dictionary<string, string>();
             using (var reader = new StreamReader(stream ?? throw new InvalidOperationException()))
             {

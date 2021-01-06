@@ -61,10 +61,10 @@
                             </Frame.GestureRecognizers>
                             <StackLayout>
                                 <Image 
+                                    Aspect="Fill"
                                     HeightRequest="100"
-                                    Source="{Binding ImageUrl}"/>
+                                    Source="{Binding ServiceHomeImageUrl}"/>
                                 <Label
-                                    FontFamily="Mono Droid"
                                     Style="{StaticResource Header1}"
                                     Text="{Binding ServiceName}"/>
                                 <!--LineHeight="1.5"-->

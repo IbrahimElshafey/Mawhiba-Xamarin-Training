@@ -28,9 +28,16 @@ namespace MawhibaSample.XamlExtensions
 
         public object ProvideValue(IServiceProvider serviceProvider)
         {
+            return GetImage(ImageName);
+           
+        }
+
+        public static ImageSource GetImage(string imageName)
+        {
             try
             {
-                return ImageSource.FromResource($"MawhibaSample.{ImageName}", typeof(ImageFromResourcesExtension).GetTypeInfo().Assembly);
+                return ImageSource.FromResource($"MawhibaSample.Assets.Images.{imageName}",
+                    typeof(ImageFromResourcesExtension).GetTypeInfo().Assembly);
             }
             catch (Exception e)
             {

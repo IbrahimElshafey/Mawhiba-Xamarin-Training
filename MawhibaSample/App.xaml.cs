@@ -20,9 +20,9 @@ namespace MawhibaSample
             InitializeComponent();
 
             //SetStartUpPage();
-            MainNavigationPage = new NavigationPage(new LoginPage());
+            //MainNavigationPage = new NavigationPage(new LoginPage());
             //MainNavigationPage = new NavigationPage(new ContactUsPage());
-            //MainNavigationPage = new NavigationPage(new TestPage());
+            MainNavigationPage = new NavigationPage(new TestPage());
             MainPage = MainNavigationPage;
         }
 

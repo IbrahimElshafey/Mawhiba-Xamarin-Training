@@ -29,7 +29,7 @@ namespace MawhibaSample.Droid
             Forms.Init(this, savedInstanceState);
             
             //change start to crosponding value to start a sample in below switch
-            var start = "OurSample";
+            var start = "LocalDatabaseTutorial";
             switch (start)
             {
                 case "OurSample":

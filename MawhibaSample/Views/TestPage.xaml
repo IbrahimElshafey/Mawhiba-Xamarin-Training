@@ -4,13 +4,14 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:MawhibaSample.ViewModels;assembly=MawhibaSample"
+    xmlns:behaviors="clr-namespace:MawhibaSample.Xaml.Behaviors;assembly=MawhibaSample"
     x:Class="MawhibaSample.Views.TestPage"
     Title="Test"
     x:Name="ThisView">
     <ContentPage.BindingContext>
         <viewModels:TestVm />
     </ContentPage.BindingContext>
-    <StackLayout
+    <!--<StackLayout
         VerticalOptions="FillAndExpand">
         <Picker
             x:Name="CountryPicker"
@@ -22,7 +23,7 @@
             Title="City"
             ItemsSource="{Binding Cities}"
             SelectedItem="{Binding City}"/>
-        <!--<Button
+        --><!--<Button
             Text="Play Animation"
             Clicked="PlayAnimantion_Clicked" />
         <BoxView
@@ -32,6 +33,21 @@
             HeightRequest="200"
             HorizontalOptions="Center"
             VerticalOptions="Center" />
-        <BoxView Background="green"/>-->
+        <BoxView Background="green"/>--><!--
+    </StackLayout>-->
+    <StackLayout 
+        x:Name="Grid1">
+
+        <Label 
+            x:Name="Label1"
+            Grid.Row="1" 
+            Grid.Column="1"
+            Text="hsghsjn"/>
+
+        <Entry>
+            <Entry.Behaviors>
+                <behaviors:EmailValidatorBehavior/>
+            </Entry.Behaviors>
+        </Entry>
     </StackLayout>
 </ContentPage>
